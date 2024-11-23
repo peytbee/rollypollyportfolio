@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+:root {
+    --primary-color: #f1c40f;
+    --primary-color-dark: #f39c12;
+    --secondary-color: #f8f2e4;
+    --text-dark: #c0392b;
+    --text-light: #e67e22;
+    --extra-light: #fefcf8;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Lexend', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: var(--text-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: var(--extra-light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a {
+    font-size: 18px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color-dark);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    background-color: var(--secondary-color);
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--text-dark);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 99;
+    }
+
+    nav a {
+        margin: 10px 0;
+        color: var(--secondary-color);
+    }
+
+    nav a:hover,
+    nav a.active {
+        color: var(--primary-color-dark);
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary-color);
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 700;
+    padding: 20px;
+}
+
+section:nth-child(odd) {
+    background: var(--extra-light);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.illustlist,
+.GDlist,
+.animation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.illustlist .item {
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the image */
+}
+
+.GDlist .item {
+    width: 100%;
+    max-width: 330px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the image */
+}
+
+.animation .item {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the image */
+}
+
+.illustlist .item img,
+.GDlist .item img,
+.animation .item img {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;  /* Set max height to control image size */
+    object-fit: cover; /* Ensure images maintain their aspect ratio */
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.illustlist .item:hover img,
+.GDlist .item:hover img,
+.animation .item:hover img {
+    transform: scale(1.1);
+}
+
+.illustlist .item .content,
+.GDlist .item .content,
+.animation .item .content {
+    position: absolute;
+    bottom: 0;
+    color: var(--extra-light);
+    text-shadow: 2px 2px 4px var(--text-dark);
+    padding: 20px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.illustlist .item:hover .content,
+.GDlist .item:hover .content,
+.animation .item:hover .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 50px;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .illustlist .item,
+    .GDlist .item,
+    .animation .item {
+        width: 100%;
+    }
+}
+
+#contact {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid  var(--text-light);
+    border-radius: 5px;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+    padding: 12px;
+    font-size: 1.1rem;
+    color:  var(--extra-light);
+    background-color: var(--text-dark);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/*homepage*/
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: var(--primary-color);
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;   
+}
+
+.home-img{
+    border-radius: 50%;   
+}
+
+.home-img img{
+    position: relative;
+    width: 20vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid var(--text-dark);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover {
+font-size: 1.8rem;
+font-weight: 500;
+}
+
+.social-icon a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid  var(--text-dark);
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+}
+
+p {
+    color: #dfb2a1;
+}
+
+.fa {
+    margin-top: 2%;
+    padding: 10px;
+    size: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 40%;
+    width: 40px
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    background-color: var(--primary-color-dark);
+    transition: 0.2s
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Instagram */
+  .fa-instagram {
+    background: var(--text-dark);
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: var(--text-dark);
+    color: white;
+  }
